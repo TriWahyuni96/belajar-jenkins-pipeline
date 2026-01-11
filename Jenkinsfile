@@ -6,6 +6,11 @@ pipeline {
         EMAIL = "105841118423@student.unismuh.ac.id"
     }
 
+    options {
+        disableConcurrentBuilds()
+        timeout(time : 10, unit: 'MINUTES')
+    }
+
     stages {
         stage('Prepare') {
             environment {
