@@ -122,13 +122,16 @@ pipeline {
         stage("Release"){
             when {
                 expression {
-                    return params.DEPLOY;
+                    return params.DEPLOY
                 }
             }
            agent {
                 node {
                     label 'linux && java17'
                 }
+            }
+            steps {
+                echo("Release it")
             } 
         }
     }
