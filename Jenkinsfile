@@ -24,26 +24,24 @@ pipeline {
     }
 
     stages {
-
-        stage("Preparation") {
-          agent {
+        stage ("preparation") {
+            agent {
                 node {
                     label 'linux && java17'
                 }
-            }  
-        }
-        stages {
-            stage("Prepare Java") {
-                steps {
-                    echo("Prepare Java")
+            }
+            stages {
+                stage("Prepare Java") {
+                    steps {
+                        echo "Prepare Java"
+                    }
+                }
+                stage("Prepare Maven") {
+                    steps {
+                        echo "Prepare Maven"
+                    }
                 }
             }
-            stage("Prepare Maven") {
-                steps {
-                    echo("Prepare Maven")
-                }
-            }
-
         }
 
         stage('Parameter') {
